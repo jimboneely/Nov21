@@ -32,6 +32,11 @@
 	if (self != nil) {
 		// Custom initialization
 		self.title = badge;
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: @"Next Badge"
+			style: UIBarButtonItemStylePlain
+			target: self
+			action: @selector(nextBadge)
+		];
 	}
 	return self;
 }
