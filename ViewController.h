@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController: UIViewController
+@interface ViewController: UIViewController {
+    NSString *image;
+}
 
-- (id) initWithTitle: (NSString *) badge;
+- (id) initWithTitle: (NSString *) badge andImage: (NSString *) image;
 - (void) nextBadge;
 @end
