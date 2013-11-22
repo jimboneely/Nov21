@@ -27,20 +27,22 @@
               ];
     
 	NSString *badge = [badges objectAtIndex: 0];
-	ViewController *firstController = [[ViewController alloc] initWithTitle: badge];
+	
     
     
     pins = [NSArray arrayWithObjects:
-            [UIImage imageNamed:@"50px-Boulder_Badge.png"],
-            [UIImage imageNamed:@"50px-Cascade_Badge.png"],
-            [UIImage imageNamed:@"50px-Thunder_Badge.png"],
-            [UIImage imageNamed:@"50px-Rainbow_Badge.png"],
-            [UIImage imageNamed:@"50px-Soul_Badge.png"],
-            [UIImage imageNamed:@"50px-Marsh_Badge.png"],
-            [UIImage imageNamed:@"50px-Volcano_Badge.png"],
-            [UIImage imageNamed:@"50px-Earth_Badge.png"],
+            @"50px-Boulder_Badge.png",
+            @"50px-Cascade_Badge.png",
+            @"50px-Thunder_Badge.png",
+            @"50px-Rainbow_Badge.png",
+            @"50px-Soul_Badge.png",
+            @"50px-Marsh_Badge.png",
+            @"50px-Volcano_Badge.png",
+            @"50px-Earth_Badge.png",
             nil
             ];
+    NSString *pin = [pins objectAtIndex: 0];
+    ViewController *firstController = [[ViewController alloc] initWithTitle: badge andImage: pin];
     
 	self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
 	self.window.backgroundColor = [UIColor whiteColor];
@@ -62,7 +64,9 @@
 	if (i < badges.count) {
 		//We haven't reached the last station yet, so we can go farther.
 		NSString *title = [badges objectAtIndex: i];
-		ViewController *viewController = [[ViewController alloc] initWithTitle: title];
+        NSString *pin = [pins objectAtIndex: i];
+		ViewController *viewController =
+        [[ViewController alloc] initWithTitle: title andImage: pin];
 		[navigationController pushViewController: viewController animated: YES];
 	}
 }
