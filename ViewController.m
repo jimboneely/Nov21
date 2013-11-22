@@ -27,7 +27,8 @@
  }
  */
 
-- (id) initWithTitle: (NSString *) badge {
+- (id) initWithTitle: (NSString *) badge andImage: (NSString *) i
+{
 	self = [super initWithNibName: nil bundle: nil];
 	if (self != nil) {
 		// Custom initialization
@@ -37,6 +38,7 @@
 			target: self
 			action: @selector(nextBadge)
 		];
+        image = i;
 	}
 	return self;
 }
@@ -44,7 +46,7 @@
 - (void) loadView
 {
 	CGRect frame = [UIScreen mainScreen].applicationFrame;
-	self.view = [[View alloc] initWithFrame: frame controller: self];
+	self.view = [[View alloc] initWithFrame: frame controller: self image: image];
 }
 
 - (void) viewDidLoad
