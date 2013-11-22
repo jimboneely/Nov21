@@ -11,7 +11,9 @@
 
 @interface View: UITextView {
 	ViewController *__weak viewController;
+    NSString *image;
 }
 
-- (id) initWithFrame: (CGRect) frame controller: (ViewController *__weak) c;
+- (id) initWithFrame: (CGRect) frame controller: (ViewController *__weak) c image: (NSString *) i;
 @end
+
