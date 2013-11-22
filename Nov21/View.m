@@ -22,7 +22,7 @@
  }
  */
 
-- (id) initWithFrame: (CGRect) frame controller: (ViewController *__weak) c
+- (id) initWithFrame: (CGRect) frame controller: (ViewController *__weak) c image: (NSString *) i
 {
 	self = [super initWithFrame: frame];
 	if (self) {
@@ -36,6 +36,7 @@
 		self.font = [UIFont fontWithName: @"Courier" size: 16];
 		self.editable = NO;
 		viewController = c;
+        image = i;
 	}
 	return self;
 }
@@ -51,19 +52,19 @@
   
     CGFloat w = self.bounds.size.width;
 	CGFloat h = self.bounds.size.height;
-    
-    UIImage *image = [UIImage imageNamed: @"50px-Boulder_Badge.png"];	//100 by 100
-	if (image == nil) {
-		NSLog(@"could not find the image");
+    NSLog(@"Looking for image %@", image);
+    UIImage *im = [UIImage imageNamed: image];	//100 by 100
+	if (im == nil) {
+		NSLog(@"could not find the image %@", image);
 		return;
-	}
+    }
     
     CGPoint point = CGPointMake(
-                                (w - image.size.width) / 2,
-                                h - image.size.height - h / 2
+                                (w - im.size.width) / 2,
+                                h - im.size.height - h / 2
                                 );
     
-	[image drawAtPoint: point];
+	[im drawAtPoint: point];
     
     /*self.text = [[viewController title] stringByAppendingString: @"\n"];
     
